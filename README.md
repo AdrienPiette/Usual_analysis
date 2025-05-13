@@ -99,6 +99,83 @@ traceology-ml/
 
 ---
 
+
+
 ## License
 
 This project is licensed under the MIT License. Training data belongs to the original data owners and is not distributed with this repository.
+
+# Random Forest Prediction Report
+## Project: Classification of Propulsion Modes in Traceology
+**Author**: Adrien Piette  
+**Date**: 2025-05-13
+
+---
+
+## 1. Objective
+
+This report presents the performance of a machine learning model trained to predict the **propulsion mode** of archaeological fractures based on traceological variables.
+
+---
+
+## 2. Methodology
+
+- Model used: `RandomForestClassifier` (Scikit-learn)
+- Number of trees: `n_estimators = 1000`
+- Maximum depth: `max_depth = 10`
+- Class weighting: `class_weight = 'balanced'`
+- Pipeline includes:
+   - Missing value imputation
+   - Ordinal encoding of categorical variables
+   - Output normalization
+- Data split: `80% training / 20% testing`
+- All features were used for training the model.
+
+---
+
+## 3. Overall Performance
+
+- **Global Accuracy**: **75%**
+- **Macro F1-score**: **72.0%**
+- **Weighted Precision**: **77.4%**
+- **Macro Recall**: **71.8%**
+
+---
+
+## 4. Performance by Class
+
+| Class           | Precision | Recall | F1-score | Support |
+|------------------|-----------|--------|----------|---------|
+| **Bow**          | 0.667     | 0.500  | 0.571    | 4       |
+| **Spear thrower**| 0.818     | 0.818  | 0.818    | 11      |
+| **Throwing**     | 0.615     | 0.889  | 0.727    | 9       |
+| **Thrusting**    | 0.889     | 0.667  | 0.762    | 12      |
+
+---
+
+## 5. Analysis of the "Bow" Class (Minority Class)
+
+- Initially poorly detected
+- Significant improvement via `class_weight='balanced'`
+- Precision is acceptable (66.7%) but recall remains partial (50%)
+- Requires monitoring with future datasets
+
+---
+
+## 6. Conclusion
+
+The final Random Forest model demonstrates **good generalization** despite the imbalanced dataset.  
+It provides robust predictions for frequent cases while improving detection of rarer classes.
+
+Potential improvements include:
+- Creation of new discriminative features (feature engineering)
+- Testing alternative sampling approaches
+- Comparison with models like XGBoost or LightGBM
+
+---
+
+## 7. Saved Model and Encoder
+
+- `model_rf_final_v1.joblib`
+- `label_encoder.joblib`
+
