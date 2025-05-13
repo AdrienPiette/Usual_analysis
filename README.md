@@ -140,6 +140,12 @@ This report presents the performance of a machine learning model trained to pred
 - **Weighted Precision**: **77.4%**
 - **Macro Recall**: **71.8%**
 
+## Metrics Explanation (EN)
+
+- **Global Accuracy**: The overall percentage of correct predictions made by the model out of all predictions.
+- **Macro F1-score**: The unweighted average F1-score across all classes, treating each class equally regardless of its size.
+- **Weighted Precision**: The average precision across all classes, weighted by the number of samples in each class. It accounts for  class imbalance.
+- **Macro Recall**: The unweighted average recall across all classes, showing how well the model captures each class independently of their size.
 ---
 
 ## 4. Performance by Class
@@ -150,6 +156,13 @@ This report presents the performance of a machine learning model trained to pred
 | **Spear thrower**| 0.818     | 0.818  | 0.818    | 11      |
 | **Throwing**     | 0.615     | 0.889  | 0.727    | 9       |
 | **Thrusting**    | 0.889     | 0.667  | 0.762    | 12      |
+
+### Metrics Explanation (Class-Level)
+
+- **Precision**: The proportion of true positive predictions for a class out of all predictions made for that class. For example, a precision of 0.667 for the "Bow" class means that 66.7% of the predictions labeled as "Bow" were correct.
+- **Recall**: The proportion of true positive predictions for a class out of all actual instances of that class. For instance, a recall of 0.500 for the "Bow" class indicates that 50% of all actual "Bow" instances were correctly identified.
+- **F1-score**: The harmonic mean of precision and recall, providing a balanced measure of a model's performance for a specific class. A lower F1-score for the "Bow" class (0.571) reflects challenges in balancing precision and recall.
+- **Support**: The number of actual instances of each class in the dataset. For example, the "Bow" class has a support of 4, indicating it is a minority class compared to others.
 
 ---
 
